@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@../css/application.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.adrien.controller.PrimaryController">
+   <center>
+      <TableView fx:id="lst_clients" prefHeight="356.0" prefWidth="480.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="col_nom" maxWidth="1.7976931348623157E308" minWidth="-1.0" text="Nom" />
+          <TableColumn fx:id="col_prenom" maxWidth="1.7976931348623157E308" minWidth="-1.0" text="Prénom" />
+            <TableColumn fx:id="col_ville" maxWidth="1.7976931348623157E308" minWidth="-1.0" text="Ville" />
+        </columns>
+      </TableView>
+   </center>
+   <right>
+      <VBox prefHeight="334.0" prefWidth="100.0" BorderPane.alignment="CENTER_RIGHT">
+         <children>
+            <Label styleClass="labelCategory" text="Nom" />
+            <TextField fx:id="text_nom" />
+            <Label styleClass="labelCategory" text="Prénom" />
+            <TextField fx:id="text_prenom" />
+            <Label styleClass="labelCategory" text="Ville" />
+            <TextField fx:id="text_ville" />
+            <HBox prefHeight="100.0" prefWidth="200.0" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="btn_sauver" minWidth="-Infinity" mnemonicParsing="false" onAction="#save" styleClass="btn" text="Sauver">
+                     <HBox.margin>
+                        <Insets left="5.0" right="2.0" />
+                     </HBox.margin></Button>
+                  <Button fx:id="btn_annuler" minWidth="-Infinity" mnemonicParsing="false" onAction="#annuler" styleClass="btn3" text="Annuler">
+                     <HBox.margin>
+                        <Insets left="2.0" right="5.0" />
+                     </HBox.margin></Button>
+               </children>
+            </HBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Button fx:id="btn_update" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#update" styleClass="btn" text="Modifier">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="32.0" top="10.0" />
+                     </VBox.margin></Button>
+                  <Button fx:id="btn_supprimer" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#delete" styleClass="btn" text="Supprimer">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="28.0" top="5.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="btn_export" mnemonicParsing="false" onAction="#sauvHandler" styleClass="btn2" text="Exporter Json">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="20.0" top="5.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </right>
+   <top>
+      <Label styleClass="labelMainTitle" text="Gestion des utilisateurs" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+   </top>
+</BorderPane>

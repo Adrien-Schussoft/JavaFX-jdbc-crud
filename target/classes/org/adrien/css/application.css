@@ -1,0 +1,46 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.background {
+    -fx-background-color: #b9ceb9;
+}
+
+.btn {
+-fx-font: 16px "Avenir Next";
+-fx-background-color: #E66A6A;
+-fx-background-radius: 5px;
+-fx-text-fill: #093440;
+-fx-padding: 8px;
+}
+
+.btn2 {
+    -fx-font: 16px "Avenir Next";
+    -fx-background-color: #ab71e6;
+    -fx-background-radius: 5px;
+    -fx-text-fill: #093440;
+    -fx-padding: 8px;
+}
+
+.btn3 {
+    -fx-font: 16px "Avenir Next";
+    -fx-background-color: #c5abc7;
+    -fx-background-radius: 5px;
+    -fx-text-fill: #093440;
+    -fx-padding: 8px;
+}
+
+.labelCategory {
+ -fx-border-width: 0 0 1 0;
+ -fx-font-family:"Segoe UI Semibold";
+ -fx-font-size: 16px;
+ -fx-text-fill: #E66A6A;
+}
+
+
+
+.labelMainTitle {
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #cde6d1;
+    -fx-font-family:"Segoe UI Semibold";
+    -fx-font-size: 22px;
+    -fx-text-fill: #093440;
+}
+
