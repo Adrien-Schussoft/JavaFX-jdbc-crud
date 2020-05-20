@@ -36,6 +36,7 @@ public class ClientDAO {
             pmt.setInt(4,cli.getId());
             pmt.executeUpdate();
             pmt.close();
+            conn.close();
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -51,6 +52,7 @@ public class ClientDAO {
             pmt.setInt(1,cli.getId());
             pmt.execute();
             pmt.close();
+            conn.close();
         }catch (SQLException e){
             e.printStackTrace();
         }
