@@ -14,15 +14,19 @@ public class ClientDAO {
         conn = Connexion.getConnexion();
     }
 
-    public void Insert(Client cli) throws SQLException {
+    public void Insert(Client cli) {
 
-        PreparedStatement stm = conn.prepareStatement("INSERT INTO client (cli_nom, cli_prenom, cli_ville) VALUES (?, ?, ?)");
-        stm.setString(1, cli.getNom());
-        stm.setString(2, cli.getPrenom());
-        stm.setString(3, cli.getVille());
-        stm.execute();
-        stm.close();
-        conn.close();
+        try {
+            PreparedStatement stm = conn.prepareStatement("INSERT INTO client (cli_nom, cli_prenom, cli_ville) VALUES (?, ?, ?)");
+            stm.setString(1, cli.getNom());
+            stm.setString(2, cli.getPrenom());
+            stm.setString(3, cli.getVille());
+            stm.execute();
+            stm.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void Update(Client cli) {
@@ -40,13 +44,11 @@ public class ClientDAO {
         }catch (SQLException e){
             e.printStackTrace();
         }
-
     }
 
     public void Delete(Client cli) {
 
         try {
-            conn = Connexion.getConnexion();
             String query = "DELETE FROM client WHERE cli_id = (?)";
             PreparedStatement pmt = conn.prepareStatement(query);
             pmt.setInt(1,cli.getId());
