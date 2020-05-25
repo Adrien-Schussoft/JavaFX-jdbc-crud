@@ -14,10 +14,15 @@ public class ClientDAO {
         conn = Connexion.getConnexion();
     }
 
+    /**
+     * Create a new client in database.
+     * @param cli
+     */
     public void Insert(Client cli) {
 
         try {
-            PreparedStatement stm = conn.prepareStatement("INSERT INTO client (cli_nom, cli_prenom, cli_ville) VALUES (?, ?, ?)");
+            String query = "INSERT INTO client (cli_nom, cli_prenom, cli_ville) VALUES (?, ?, ?)";
+            PreparedStatement stm = conn.prepareStatement(query);
             stm.setString(1, cli.getNom());
             stm.setString(2, cli.getPrenom());
             stm.setString(3, cli.getVille());
@@ -29,6 +34,10 @@ public class ClientDAO {
         }
     }
 
+    /**
+     * Update an existing client in database.
+     * @param cli
+     */
     public void Update(Client cli) {
 
         try{
@@ -46,6 +55,10 @@ public class ClientDAO {
         }
     }
 
+    /**
+     * Delete an existing client in database.
+     * @param cli
+     */
     public void Delete(Client cli) {
 
         try {
@@ -61,7 +74,7 @@ public class ClientDAO {
     }
 
     /**
-     *
+     * Return a list of  all clients in database.
      * @return resultat
      */
     public ArrayList List() {

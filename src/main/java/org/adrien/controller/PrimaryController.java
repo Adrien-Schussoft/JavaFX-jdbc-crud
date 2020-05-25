@@ -71,6 +71,7 @@ public class PrimaryController implements Initializable {
         col_ville.setCellValueFactory(new PropertyValueFactory<>("ville"));
         // Indique au TableView le model à observer pour trouver les données
         lst_clients.setItems(model);
+        getDataModelSeleced();
     }
 
     /**
@@ -117,7 +118,6 @@ public class PrimaryController implements Initializable {
     private void delete(ActionEvent event) throws SQLException {
         ClientDAO repo = new ClientDAO();
         Client client = new Client(lst_clients.getSelectionModel().getSelectedIndex());
-
         client.setId(lst_clients.getSelectionModel().getSelectedItem().getId());
         System.out.println(client.getId());
         repo.Delete(client);
@@ -137,6 +137,27 @@ public class PrimaryController implements Initializable {
     text_ville.clear();
     }
 
+    /**
+     * Get the information of the selected row in the textFields areas.
+     */
+    @FXML
+    private void getDataModelSeleced(){
+        lst_clients.setOnMouseClicked(event1 -> {
+            Client client2 = new Client(lst_clients.getSelectionModel().getSelectedIndex());
+            client2.setId(lst_clients.getSelectionModel().getSelectedItem().getId());
+            client2.setNom(lst_clients.getSelectionModel().getSelectedItem().getNom());
+            client2.setPrenom(lst_clients.getSelectionModel().getSelectedItem().getPrenom());
+            client2.setVille(lst_clients.getSelectionModel().getSelectedItem().getVille());
+            text_nom.setText(client2.getNom());
+            text_prenom.setText(client2.getPrenom());
+            text_ville.setText(client2.getVille());
+        });
+    }
+
+    /**
+     * Export the selected client to Json file.
+     * @param event
+     */
     @FXML
     private void sauvHandler(ActionEvent event) {
 
