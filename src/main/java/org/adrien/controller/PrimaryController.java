@@ -71,7 +71,7 @@ public class PrimaryController implements Initializable {
         col_ville.setCellValueFactory(new PropertyValueFactory<>("ville"));
         // Indique au TableView le model à observer pour trouver les données
         lst_clients.setItems(model);
-        getDataModelSeleced();
+        getDataModelSelected();
     }
 
     /**
@@ -141,7 +141,7 @@ public class PrimaryController implements Initializable {
      * Get the information of the selected row in the textFields areas.
      */
     @FXML
-    private void getDataModelSeleced(){
+    private void getDataModelSelected(){
         lst_clients.setOnMouseClicked(event1 -> {
             Client client2 = new Client(lst_clients.getSelectionModel().getSelectedIndex());
             client2.setId(lst_clients.getSelectionModel().getSelectedItem().getId());
