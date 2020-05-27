@@ -60,7 +60,7 @@ public class PrimaryController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ClientDAO clientDAO = new ClientDAO();
-        ArrayList client = clientDAO.List();
+        ArrayList client = clientDAO.list();
         for (int i =0;i<client.size();i++){
             model.add((Client) client.get(i));
         }
@@ -86,7 +86,7 @@ public class PrimaryController implements Initializable {
         client.setPrenom(text_prenom.getText());
         client.setNom(text_nom.getText());
         client.setVille(text_ville.getText());
-        repo.Insert(client);
+        repo.insert(client);
         model.add(client);
     }
 
@@ -103,9 +103,9 @@ public class PrimaryController implements Initializable {
         client.setPrenom(text_prenom.getText());
         client.setNom(text_nom.getText());
         client.setVille(text_ville.getText());
-        repo.Update(client);
+        repo.update(client);
         model.clear();
-        ArrayList clientList = repo.List();
+        ArrayList clientList = repo.list();
         model.addAll(clientList);
     }
 
@@ -120,9 +120,9 @@ public class PrimaryController implements Initializable {
         Client client = new Client(lst_clients.getSelectionModel().getSelectedIndex());
         client.setId(lst_clients.getSelectionModel().getSelectedItem().getId());
         System.out.println(client.getId());
-        repo.Delete(client);
+        repo.delete(client);
         model.clear();
-        ArrayList clientList = repo.List();
+        ArrayList clientList = repo.list();
         model.addAll(clientList);
     }
 

@@ -18,7 +18,7 @@ public class ClientDAO {
      * Create a new client in database.
      * @param cli
      */
-    public void Insert(Client cli) {
+    public void insert(Client cli) {
 
         try {
             String query = "INSERT INTO client (cli_nom, cli_prenom, cli_ville) VALUES (?, ?, ?)";
@@ -38,7 +38,7 @@ public class ClientDAO {
      * Update an existing client in database.
      * @param cli
      */
-    public void Update(Client cli) {
+    public void update(Client cli) {
 
         try{
             String query = "UPDATE client SET cli_nom = (?),cli_prenom = (?),cli_ville = (?) WHERE cli_id = (?)";
@@ -59,7 +59,7 @@ public class ClientDAO {
      * Delete an existing client in database.
      * @param cli
      */
-    public void Delete(Client cli) {
+    public void delete(Client cli) {
 
         try {
             String query = "DELETE FROM client WHERE cli_id = (?)";
@@ -77,7 +77,7 @@ public class ClientDAO {
      * Return a list of  all clients in database.
      * @return resultat
      */
-    public ArrayList List() {
+    public ArrayList list() {
         conn = Connexion.getConnexion();
         ResultSet rs = null;
         Client client;
