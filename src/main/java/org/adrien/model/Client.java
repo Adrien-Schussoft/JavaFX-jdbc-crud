@@ -40,7 +40,7 @@ public class Client {
     }
 
     /**
-     * Constructor with id parameter to update,search,delete...
+     * Constructor with id parameter to Update,search,Delete...
      * @param id
      */
     public Client(int id) {

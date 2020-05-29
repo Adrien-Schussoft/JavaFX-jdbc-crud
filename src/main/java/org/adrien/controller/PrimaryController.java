@@ -60,7 +60,7 @@ public class PrimaryController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ClientDAO clientDAO = new ClientDAO();
-        ArrayList client = clientDAO.list();
+        ArrayList client = clientDAO.List();
         for (int i =0;i<client.size();i++){
             model.add((Client) client.get(i));
         }
@@ -86,12 +86,12 @@ public class PrimaryController implements Initializable {
         client.setPrenom(text_prenom.getText());
         client.setNom(text_nom.getText());
         client.setVille(text_ville.getText());
-        repo.insert(client);
+        repo.Insert(client);
         model.add(client);
     }
 
     /**
-     * Update event to update data.
+     * Update event to Update data.
      * @param event
      * @throws SQLException
      */
@@ -103,14 +103,14 @@ public class PrimaryController implements Initializable {
         client.setPrenom(text_prenom.getText());
         client.setNom(text_nom.getText());
         client.setVille(text_ville.getText());
-        repo.update(client);
+        repo.Update(client);
         model.clear();
-        ArrayList clientList = repo.list();
+        ArrayList clientList = repo.List();
         model.addAll(clientList);
     }
 
     /**
-     * Delete event to delete data.
+     * Delete event to Delete data.
      * @param event
      * @throws SQLException
      */
@@ -120,9 +120,9 @@ public class PrimaryController implements Initializable {
         Client client = new Client(lst_clients.getSelectionModel().getSelectedIndex());
         client.setId(lst_clients.getSelectionModel().getSelectedItem().getId());
         System.out.println(client.getId());
-        repo.delete(client);
+        repo.Delete(client);
         model.clear();
-        ArrayList clientList = repo.list();
+        ArrayList clientList = repo.List();
         model.addAll(clientList);
     }
 
