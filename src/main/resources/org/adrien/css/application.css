@@ -9,6 +9,7 @@
 -fx-background-radius: 5px;
 -fx-text-fill: #093440;
 -fx-padding: 8px;
+-fx-cursor: hand;
 }
 
 .btn2 {
@@ -17,6 +18,7 @@
     -fx-background-radius: 5px;
     -fx-text-fill: #093440;
     -fx-padding: 8px;
+    -fx-cursor: hand;
 }
 
 .btn3 {
@@ -25,6 +27,7 @@
     -fx-background-radius: 5px;
     -fx-text-fill: #093440;
     -fx-padding: 8px;
+    -fx-cursor: hand;
 }
 
 .labelCategory {
@@ -33,8 +36,6 @@
  -fx-font-size: 16px;
  -fx-text-fill: #E66A6A;
 }
-
-
 
 .labelMainTitle {
     -fx-border-width: 0 0 1 0;
