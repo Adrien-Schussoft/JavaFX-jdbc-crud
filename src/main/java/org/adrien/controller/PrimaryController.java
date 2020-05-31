@@ -60,7 +60,7 @@ public class PrimaryController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ClientDAO clientDAO = new ClientDAO();
-        ArrayList client = clientDAO.List();
+        ArrayList client = clientDAO.list();
         for (int i =0;i<client.size();i++){
             model.add((Client) client.get(i));
         }
@@ -86,12 +86,14 @@ public class PrimaryController implements Initializable {
         client.setPrenom(text_prenom.getText());
         client.setNom(text_nom.getText());
         client.setVille(text_ville.getText());
-        repo.Insert(client);
-        model.add(client);
+        repo.insert(client);
+        model.clear();
+        ArrayList clientList = repo.list();
+        model.addAll(clientList);
     }
 
     /**
-     * Update event to Update data.
+     * update event to update data.
      * @param event
      * @throws SQLException
      */
@@ -103,14 +105,14 @@ public class PrimaryController implements Initializable {
         client.setPrenom(text_prenom.getText());
         client.setNom(text_nom.getText());
         client.setVille(text_ville.getText());
-        repo.Update(client);
+        repo.update(client);
         model.clear();
-        ArrayList clientList = repo.List();
+        ArrayList clientList = repo.list();
         model.addAll(clientList);
     }
 
     /**
-     * Delete event to Delete data.
+     * delete event to delete data.
      * @param event
      * @throws SQLException
      */
@@ -120,9 +122,9 @@ public class PrimaryController implements Initializable {
         Client client = new Client(lst_clients.getSelectionModel().getSelectedIndex());
         client.setId(lst_clients.getSelectionModel().getSelectedItem().getId());
         System.out.println(client.getId());
-        repo.Delete(client);
+        repo.delete(client);
         model.clear();
-        ArrayList clientList = repo.List();
+        ArrayList clientList = repo.list();
         model.addAll(clientList);
     }
 
@@ -144,7 +146,7 @@ public class PrimaryController implements Initializable {
     private void getDataModelSelected(){
         lst_clients.setOnMouseClicked(event1 -> {
             ClientDAO repo = new ClientDAO();
-            Client client = repo.FindById(lst_clients.getSelectionModel().getSelectedItem().getId());
+            Client client = repo.findById(lst_clients.getSelectionModel().getSelectedItem().getId());
             text_nom.setText(client.getNom());
             text_prenom.setText(client.getPrenom());
             text_ville.setText(client.getVille());
