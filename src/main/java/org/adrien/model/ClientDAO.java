@@ -39,7 +39,7 @@ public class ClientDAO {
      * @param id
      * @return client
      */
-    public Client findById(int id) {
+    public Client FindById(int id) {
         ResultSet rs = null;
         Client client = new Client();
 
