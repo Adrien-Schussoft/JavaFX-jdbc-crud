@@ -55,11 +55,16 @@ public class ClientDAO {
                 client.setPrenom(rs.getString("cli_prenom"));
                 client.setVille(rs.getString("cli_ville"));
             }
+            else{
+                client.setId(0);
+                client.setNom("");
+                client.setPrenom("");
+                client.setVille("");
+            }
             rs.close();
             stm.close();
             conn.close();
         }
-
         catch (SQLException e) {
             e.printStackTrace();
         }
