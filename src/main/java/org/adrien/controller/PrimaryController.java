@@ -132,9 +132,9 @@ public class PrimaryController implements Initializable {
      */
     @FXML
     private void annuler(ActionEvent event) {
-    text_prenom.clear();
-    text_nom.clear();
-    text_ville.clear();
+        text_prenom.clear();
+        text_nom.clear();
+        text_ville.clear();
     }
 
     /**
@@ -143,14 +143,11 @@ public class PrimaryController implements Initializable {
     @FXML
     private void getDataModelSelected(){
         lst_clients.setOnMouseClicked(event1 -> {
-            Client client2 = new Client(lst_clients.getSelectionModel().getSelectedIndex());
-            client2.setId(lst_clients.getSelectionModel().getSelectedItem().getId());
-            client2.setNom(lst_clients.getSelectionModel().getSelectedItem().getNom());
-            client2.setPrenom(lst_clients.getSelectionModel().getSelectedItem().getPrenom());
-            client2.setVille(lst_clients.getSelectionModel().getSelectedItem().getVille());
-            text_nom.setText(client2.getNom());
-            text_prenom.setText(client2.getPrenom());
-            text_ville.setText(client2.getVille());
+            ClientDAO repo = new ClientDAO();
+            Client client = repo.findById(lst_clients.getSelectionModel().getSelectedItem().getId());
+            text_nom.setText(client.getNom());
+            text_prenom.setText(client.getPrenom());
+            text_ville.setText(client.getVille());
         });
     }
 

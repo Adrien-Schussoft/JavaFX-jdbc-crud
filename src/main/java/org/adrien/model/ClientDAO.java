@@ -35,6 +35,39 @@ public class ClientDAO {
     }
 
     /**
+     * Search an existing client by id in database.
+     * @param id
+     * @return client
+     */
+    public Client findById(int id) {
+        ResultSet rs = null;
+        Client client = new Client();
+
+        try {
+            String query = "SELECT * FROM CLIENT WHERE cli_id = (?)";
+            PreparedStatement stm = conn.prepareStatement(query);
+
+            stm.setInt(1, id);
+            rs = stm.executeQuery();
+            if (rs.next()) {
+                client.setId(rs.getInt("cli_id"));
+                client.setNom(rs.getString("cli_nom"));
+                client.setPrenom(rs.getString("cli_prenom"));
+                client.setVille(rs.getString("cli_ville"));
+            }
+            rs.close();
+            stm.close();
+            conn.close();
+        }
+
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return client;
+    }
+
+
+    /**
      * Update an existing client in database.
      * @param cli
      */
